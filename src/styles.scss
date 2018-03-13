@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+
+.scroll {
+  height: 700px;
+  overflow: auto;
+  float: left;
+  margin: 0 10px;
+}
+
+.content {
+  height: 800px;
+}
+
+.scroll1::-webkit-scrollbar {
+  width: 5px;
+}
+ 
+.scroll1::-webkit-scrollbar-track {
+  background: #ddd;
+}
+ 
+.scroll1::-webkit-scrollbar-thumb {
+  background: #666; 
+}
+
+
+
+

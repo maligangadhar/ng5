@@ -1,0 +1,33 @@
+<div style="padding:30px;">
+    <div class="input-group" style="padding:30px;" >
+        <span class="input-group-addon">
+            <i class="fa fa-search"></i> 
+        </span>
+        <input type="text" [(ngModel)]="searchParam"  class="form-control" placeholder="Search ..."/>
+    </div>
+    <div class="dropdown" style="margin-left:30px;">
+        <button class="btn btn-primary dropdown-toggle" type="button" (click)="getListByRating()" data-toggle="dropdown">Filter By Rating</button>
+        <button class="btn btn-primary dropdown-toggle" type="button" (click)="getPopularList()" data-toggle="dropdown">Filter By Popularity</button>
+      </div>
+    <br/>
+    <div class="row container">
+      <div class="col-sm-6" >
+          <ul id="grouplist" class="list-group content scroll scroll1">
+              <li *ngFor="let rec of recipes | filter:searchParam; let i=index" (click)="listClick(rec,i)" 
+                  [ngClass]="{'active': selectedItemIndex == i, 'list-group-item': true}" >
+                  <h3> {{rec.title}}   </h3> <br/> {{rec.publisher}}
+              </li>
+          </ul>
+      </div>
+      <div class="col-sm-6"  *ngIf="selectedItemIndex>=0">
+          <div class="alert alert-success" *ngIf="addToCartFlag">
+              <strong>Success!</strong> Successfylly added to Cart.
+          </div>
+            <h2>Selected Item details </h2> <br>
+            <h3> <strong>Title : </strong></h3>{{selectedItem.title}} <br>
+            <h2> <strong>Publisher : </strong></h2>{{selectedItem.publisher}} <br>
+            <img src={{selectedItem.image_url}}>
+            <button type="button" (click)="addToCartList(selectedItem.title);"  style="padding:20px;" class="btn btn-primary">Add To Cart</button>
+      </div>
+    </div>
+  </div>

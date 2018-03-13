@@ -1,0 +1,14 @@
+<div class="" *ngIf="!cartConfirmed">
+  <h1>My Cart Details :</h1>
+  <button type="button"  [disabled]="(selectedCartItem===-1) ? true:false"  (click)="deleteFromCartList()" class="btn btn-danger" style="margin-left:30px;">Delete</button>
+  <button type="button"  [disabled]="(myCartList.length<1) ? true:false" (click)="confiredCartList()" class="btn btn-success">Confirm Order</button>
+</div>
+<div class="alert alert-success" *ngIf="cartConfirmed">
+  <strong>Success!</strong> Successfylly placed order.
+</div>
+<ul id="grouplist" class="list-group scroll scroll1" style="padding:20px;">
+  <li *ngFor="let rec of myCartList; let i=index" (click)="listClick(i)" 
+      [ngClass]="{'active': selectedCartItem == i, 'list-group-item': true}" >
+      {{rec}}
+  </li>
+</ul>

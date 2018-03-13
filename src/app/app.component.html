@@ -1,11 +1,12 @@
 <!--The content below is only a placeholder and can be replaced.-->
-
-<ul>
-  <li>
-    <a routerLink="">Home</a>
-  </li>
-  <li>
-     <a routerLink="about">About</a>
-  </li>
-</ul>
+<nav class="navbar navbar-default">
+    <div class="container">
+      <div class="collapse navbar-collapse" id="navbar-collapse-1">
+        <ul class="nav navbar-nav pull-left">
+          <li style="padding-left:20px;"><h2><a routerLink="receipe"><i class="fa fa-home"></i> Receipe</a></h2></li>
+          <li style="padding-left:20px;"><h2><a routerLink="cart"><i class="fa fa-cart-plus"></i>  My Cart</a></h2></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 <router-outlet></router-outlet>
